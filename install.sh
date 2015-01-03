@@ -18,8 +18,8 @@ ln -s $HOME/.vim/vimrc $HOME/.vimrc
 echo -n "Downloading dependencies..."
 cd $HOME/.vim
 
-git submodule init
-git submodule update
+git submodule init > /dev/null
+git submodule update > /dev/null
 
 echo " Done"
 

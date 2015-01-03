@@ -8,7 +8,7 @@ Installation
 
 To install this package as your local vim configuration, do the following:
 
-```
+```bash
 git clone https://github.com/bertptrs/vimconfig.git ~/.vim
 ~/.vim/install.sh
 ```
