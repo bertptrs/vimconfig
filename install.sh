@@ -12,16 +12,17 @@ then
 	exit 2
 fi
 
-echo "Installing .vimrc"
-ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
-echo -n "Downloading dependencies..."
+echo -n "Downloading dependencies... "
 cd $HOME/.vim
 
-git submodule init > /dev/null
-git submodule update > /dev/null
+git submodule init &> /dev/null && git submodule update &> /dev/null \
+	|| $(echo "Failed."; echo "Submodule installation failed."; exit 3)
 
-echo " Done"
+echo "Done."
+
+echo "Installing .vimrc"
+ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
 echo
 echo "Installation finished."

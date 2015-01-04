@@ -19,3 +19,7 @@ colorscheme molokai
 
 map <F5> :update<CR>:make<CR>
 imap <F5> <Esc>:update<CR>:make<CR>
+
+"language specific syntastic configurtion
+let g:syntastic_cpp_compiler="g++"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
