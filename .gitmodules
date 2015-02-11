@@ -22,3 +22,6 @@
 [submodule "bundle/vim-vimlparser"]
 	path = bundle/vim-vimlparser
 	url = https://github.com/ynkdir/vim-vimlparser
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = git@github.com:lervag/vim-latex.git
