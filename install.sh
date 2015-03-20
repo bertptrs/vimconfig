@@ -1,28 +1,45 @@
 #!/bin/bash
 
-if [ -f $HOME/.vimrc ]
-then
-	echo "Already have a local vimrc, abort."
-	exit 1
-fi
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-if [ ! -f $HOME/.vim/vimrc ]
-then
-	echo "Vimconfig rc not found, abort."
-	exit 2
-fi
+confirm () {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case $response in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
 
+confirmAndLink() {
+	if [ -e $2 ]
+	then
+		echo "Destination $2 already exists and will be overwritten."
+		confirm && rm -rf $2 && ln -s $1 $2
+	else
+		ln -s $1 $2
+	fi
+}
+
+cd $DIR && echo "Current working directory is ${DIR}"
 
 echo -n "Downloading dependencies... "
-cd $HOME/.vim
 
 git submodule init &> /dev/null && git submodule update &> /dev/null \
 	|| $(echo "Failed."; echo "Submodule installation failed."; exit 3)
 
-echo "Done."
+echo "done."
 
-echo "Installing .vimrc"
-ln -s $HOME/.vim/vimrc $HOME/.vimrc
+# Install vim
 
-echo
+echo "Installing vim."
+
+confirmAndLink $DIR/vim/vimrc $HOME/.vimrc
+confirmAndLink $DIR/vim $HOME/.vim
+
+
 echo "Installation finished."
