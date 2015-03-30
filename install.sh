@@ -41,14 +41,18 @@ echo "Installing vim."
 confirmAndLink $DIR/vim/vimrc $HOME/.vimrc
 confirmAndLink $DIR/vim $HOME/.vim
 
-echo "Installing zsh"
-
-if [ ! -e $HOME/.oh-my-zsh ]
+which zsh
+if which zsh
 then
-	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-	rm $HOME/.zshrc
-else
-	confirmAndLink $DIR/zshrc $HOME/.zshrc
+	echo "Installing zsh"
+	
+	if [ ! -e $HOME/.oh-my-zsh ]
+	then
+		curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+		rm $HOME/.zshrc
+	else
+		confirmAndLink $DIR/zshrc $HOME/.zshrc
+	fi
+	
+	echo "Installation finished."
 fi
-
-echo "Installation finished."
