@@ -15,3 +15,11 @@ source $ZSH/oh-my-zsh.sh
 
 # If I mean interactive, I will tell you.
 unalias rm
+
+# Several aliases
+gvim='gvim --remote-tab'
+
+if (( $+commands[thefuck] ))
+then
+	alias fuck='thefuck'
+fi
