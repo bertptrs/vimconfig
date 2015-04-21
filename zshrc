@@ -21,5 +21,5 @@ gvim='gvim --remote-tab'
 
 if (( $+commands[thefuck] ))
 then
-	alias fuck='thefuck'
+	alias fuck='$(thefuck $(fc -ln -1))'
 fi
