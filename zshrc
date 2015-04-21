@@ -4,7 +4,7 @@ export EDITOR=vim
 
 ZSH_THEME="clean"
 
-plugins=(git git-extras composer common-aliases colorize npm svn tmux ubuntu sudo command-not-found python last-working-dir jsontools bower)
+plugins=(git git-extras composer common-aliases colorize svn tmux ubuntu sudo command-not-found python last-working-dir jsontools bower)
 
 # User configuration
 ZSH_TMUX_AUTOSTART=true
