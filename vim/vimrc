@@ -23,3 +23,5 @@ imap <F5> <Esc>:update<CR>:make<CR>
 "language specific syntastic configurtion
 let g:syntastic_cpp_compiler="g++"
 let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
