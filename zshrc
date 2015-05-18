@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 unalias rm
 
 # Several aliases
-gvim='gvim --remote-tab'
+alias gvim='gvim --remote-tab'
 
 if (( $+commands[thefuck] ))
 then
