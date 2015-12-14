@@ -20,7 +20,11 @@ prompt bart
 setopt HIST_IGNORE_DUPS
 
 # Setup the CNF hook
-source /usr/share/doc/pkgfile/command-not-found.zsh
+if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
+	source /usr/share/doc/pkgfile/command-not-found.zsh
+elif [[ -s /etc/zsh_command_not_found ]]; then
+	source /etc/zsh_command_not_found
+fi
 
 # History search
 autoload -U history-search-end
