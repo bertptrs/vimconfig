@@ -6,7 +6,7 @@ confirm () {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure? [y/N]} " response
     case $response in
-        [yY][eE][sS]|[yY]) 
+        [yY][eE][sS]|[yY])
             true
             ;;
         *)
@@ -41,18 +41,14 @@ echo "Installing vim."
 confirmAndLink $DIR/vim/vimrc $HOME/.vimrc
 confirmAndLink $DIR/vim $HOME/.vim
 
-which zsh
+
+# Install zsh, if relevant.
 if which zsh
 then
 	echo "Installing zsh"
-	
-	if [ ! -e $HOME/.oh-my-zsh ]
-	then
-		curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-		rm $HOME/.zshrc
-	else
-		confirmAndLink $DIR/zshrc $HOME/.zshrc
-	fi
-	
-	echo "Installation finished."
+
+	confirmAndLink $DIR/zshrc $HOME/.zshrc
+
 fi
+
+echo "Installation finished."
