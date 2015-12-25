@@ -26,6 +26,11 @@ elif [[ -s /etc/zsh_command_not_found ]]; then
 	source /etc/zsh_command_not_found
 fi
 
+# Add Composer binaries
+if [ -d "$HOME/.composer" ]; then
+	path+=("$HOME/.composer/vendor/bin")
+fi
+
 # History search
 autoload -U history-search-end
 bindkey -v
