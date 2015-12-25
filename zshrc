@@ -31,6 +31,9 @@ if [ -d "$HOME/.composer" ]; then
 	path+=("$HOME/.composer/vendor/bin")
 fi
 
+# No matches found for "*"
+unsetopt nomatch
+
 # History search
 autoload -U history-search-end
 bindkey -v
