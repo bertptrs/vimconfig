@@ -19,6 +19,10 @@ prompt bart
 # No dupes in history
 setopt HIST_IGNORE_DUPS
 
+# Shared history between sessions
+setopt inc_append_history
+setopt share_history
+
 # Setup the CNF hook
 if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
 	source /usr/share/doc/pkgfile/command-not-found.zsh
