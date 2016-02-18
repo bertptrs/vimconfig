@@ -17,6 +17,11 @@ set backspace=eol,indent,start
 
 colorscheme molokai
 
+" I have never intended to use the builtin help
+map <F1> <Esc>
+imap <F1> <Esc>
+
+
 map <F5> :update<CR>:make<CR>
 imap <F5> <Esc>:update<CR>:make<CR>
 

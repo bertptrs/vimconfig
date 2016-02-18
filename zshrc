@@ -30,6 +30,9 @@ elif [[ -s /etc/zsh_command_not_found ]]; then
 	source /etc/zsh_command_not_found
 fi
 
+# Set sensible tab width
+tabs -4
+
 # Add Composer binaries
 if [ -d "$HOME/.composer" ]; then
 	path+=("$HOME/.composer/vendor/bin")
