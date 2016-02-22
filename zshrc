@@ -40,7 +40,6 @@ unsetopt nomatch
 
 # History search
 autoload -U history-search-end
-bindkey -v
 
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -78,5 +77,5 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd notify
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
