@@ -1,33 +1,33 @@
 [submodule "vim/pathogen"]
-	path = vim/pathogen
+	path = vim/.vim/pathogen
 	url = https://github.com/tpope/vim-pathogen
 [submodule "vim/bundle/molokai"]
-	path = vim/bundle/molokai
+	path = vim/.vim/bundle/molokai
 	url = https://github.com/tomasr/molokai
 [submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
+	path = vim/.vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
 [submodule "vim/bundle/vim-less"]
-	path = vim/bundle/vim-less
+	path = vim/.vim/bundle/vim-less
 	url = https://github.com/lunaru/vim-less
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
+	path = vim/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
+	path = vim/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
 [submodule "vim/bundle/vim-vimlint"]
-	path = vim/bundle/vim-vimlint
+	path = vim/.vim/bundle/vim-vimlint
 	url = https://github.com/syngan/vim-vimlint
 [submodule "vim/bundle/vim-vimlparser"]
-	path = vim/bundle/vim-vimlparser
+	path = vim/.vim/bundle/vim-vimlparser
 	url = https://github.com/ynkdir/vim-vimlparser
 [submodule "vim/bundle/vim-latex"]
-	path = vim/bundle/vim-latex
+	path = vim/.vim/bundle/vim-latex
 	url = git@github.com:lervag/vim-latex.git
 [submodule "vim/bundle/shebang"]
-	path = vim/bundle/shebang
+	path = vim/.vim/bundle/shebang
 	url = https://github.com/vim-scripts/Shebang
 [submodule "vim/bundle/indentLine"]
-	path = vim/bundle/indentLine
+	path = vim/.vim/bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine

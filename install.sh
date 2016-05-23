@@ -2,6 +2,10 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+commandAvailable() {
+	command -v $1 >/dev/null
+}
+
 confirm () {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure? [y/N]} " response
@@ -34,21 +38,24 @@ git submodule init &> /dev/null && git submodule update &> /dev/null \
 
 echo "done."
 
+if ! commandAvailable stow; then
+	echo "Error: stow not available. Skipping installation." >&2;
+	exit 1;
+fi
+
 # Install vim
 
-echo "Installing vim."
-
-confirmAndLink $DIR/vim/vimrc $HOME/.vimrc
-confirmAndLink $DIR/vim $HOME/.vim
-
+if commandAvailable vim
+then
+	echo "Installing configuration files for vim.";
+	stow -t $HOME vim
+fi
 
 # Install zsh, if relevant.
-if which zsh
+if commandAvailable zsh
 then
-	echo "Installing zsh"
-
-	confirmAndLink $DIR/zshrc $HOME/.zshrc
-
+	echo "Installing configuration files for zsh."
+	stow -t $HOME zsh
 fi
 
 echo "Installation finished."
