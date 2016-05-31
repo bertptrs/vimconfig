@@ -1,3 +1,4 @@
+bindkey -e
 # zshrc aliases
 alias ls='ls --color=auto'
 alias ll='ls -lh'
@@ -96,5 +97,4 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd notify
-bindkey -e
 # End of lines configured by zsh-newuser-install
