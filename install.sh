@@ -58,4 +58,8 @@ then
 	stow -t $HOME zsh
 fi
 
+# Install all XDG compatible packages
+echo "Installing remaining packages"
+stow -t $HOME pacman git
+
 echo "Installation finished."

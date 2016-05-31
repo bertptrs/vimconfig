@@ -1,0 +1,17 @@
+[core]
+	pager = less -x4
+	editor = vim
+	excludesfile = ~/.config/git/ignore
+
+[user]
+	name = Bert Peters
+	email = bert.ljpeters@gmail.com
+
+[push]
+	default = simple
+
+[merge]
+	tool = vimdiff
+
+[help]
+	autocorrect = 10
