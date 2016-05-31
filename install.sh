@@ -44,6 +44,7 @@ echo "done."
 installIfAvailable vim
 installIfAvailable zsh
 installIfAvailable sqlite3 sqlite
+installIfAvailable tmux
 
 # Install all XDG compatible packages
 echo "Installing remaining packages…"
