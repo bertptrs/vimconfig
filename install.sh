@@ -58,6 +58,12 @@ then
 	stow -t $HOME zsh
 fi
 
+if commandAvailable "sqlite3"
+then
+	echo "Installing configuration files for sqlite."
+	stow -t $HOME sqlite
+fi
+
 # Install all XDG compatible packages
 echo "Installing remaining packages"
 stow -t $HOME pacman git
