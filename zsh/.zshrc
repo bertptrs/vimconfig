@@ -74,6 +74,10 @@ export COMPOSER_CACHE_DIR="$XDG_CACHE_HOME"/composer
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
+if [ ! -d $(dirname $LESSHISTFILE) ]
+then
+	mkdir -p $(dirname $LESSHISTFILE)
+fi
 
 # Transfer.sh plugin
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
@@ -94,6 +98,10 @@ zstyle :compinstall filename '/home/bert/.zshrc'
 autoload -Uz compinit
 compinit
 HISTFILE="$XDG_DATA_HOME/zsh/histfile"
+if [ ! -d $(dirname $HISTFILE) ]
+then
+	mkdir -p $(dirname $HISTFILE)
+fi
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd notify
