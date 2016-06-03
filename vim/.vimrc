@@ -30,7 +30,7 @@ let g:syntastic_cpp_compiler="g++"
 let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
 
 autocmd Filetype python setlocal expandtab
-autocmd Filetype markdown setlocal textwidth=79
+autocmd Filetype markdown setlocal textwidth=72
 
 " Remove trailing whitespace, always.
 autocmd BufWritePre * :%s/\s\+$//e
