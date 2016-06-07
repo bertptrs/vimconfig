@@ -50,4 +50,9 @@ installIfAvailable tmux
 echo "Installing remaining packages…"
 stow -t $HOME pacman git
 
+if commandAvailable gsettings; then
+	echo "Installing gsettings preferences…"
+	./gsettings.sh
+fi
+
 echo "Installation finished."
