@@ -31,6 +31,14 @@ elif [[ -s /etc/zsh_command_not_found ]]; then
 	source /etc/zsh_command_not_found
 fi
 
+# Load up help files
+autoload -Uz run-help
+autoload -Uz run-help-git
+autoload -Uz run-help-svn
+autoload -Uz run-help-svk
+unalias run-help
+alias help=run-help
+
 # Set sensible tab width
 tabs -4
 
