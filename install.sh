@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 commandAvailable() {
 	command -v $1 >/dev/null
@@ -30,16 +30,12 @@ if ! commandAvailable stow; then
 	exit 1
 fi
 
-cd $DIR && echo "Current working directory is ${DIR}"
-
 echo -n "Downloading dependencies... "
 
 git submodule update --init &> /dev/null \
 	|| (echo "Failed."; echo "Submodule installation failed."; exit 3)
 
 echo "done."
-
-
 
 installIfAvailable vim
 installIfAvailable zsh
