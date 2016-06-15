@@ -20,7 +20,7 @@ installIfAvailable() {
 	fi
 
 	if commandAvailable $COMMAND; then
-		echo "Installing configuration files for $COMMAND…"
+		echo "Installing configuration files for $PACKAGE…"
 		stow -t $HOME $PACKAGE
 	fi
 }
@@ -45,6 +45,7 @@ installIfAvailable vim
 installIfAvailable zsh
 installIfAvailable sqlite3 sqlite
 installIfAvailable tmux
+installIfAvailable systemctl systemd
 
 # Install all XDG compatible packages
 echo "Installing remaining packages…"

@@ -1,1 +1,4 @@
 *.swp
+
+# Ignore the installation of services for now.
+systemd/.config/systemd/user/default.target.wants
