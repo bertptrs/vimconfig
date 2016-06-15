@@ -34,8 +34,8 @@ cd $DIR && echo "Current working directory is ${DIR}"
 
 echo -n "Downloading dependencies... "
 
-git submodule init &> /dev/null && git submodule update &> /dev/null \
-	|| $(echo "Failed."; echo "Submodule installation failed."; exit 3)
+git submodule update --init &> /dev/null \
+	|| (echo "Failed."; echo "Submodule installation failed."; exit 3)
 
 echo "done."
 
@@ -46,10 +46,8 @@ installIfAvailable zsh
 installIfAvailable sqlite3 sqlite
 installIfAvailable tmux
 installIfAvailable systemctl systemd
-
-# Install all XDG compatible packages
-echo "Installing remaining packages…"
-stow -t $HOME pacman git
+installIfAvailable pacman
+installIfAvailable git
 
 if commandAvailable gsettings; then
 	echo "Installing gsettings preferences…"
