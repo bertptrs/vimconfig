@@ -12,8 +12,8 @@ gsettings set org.gnome.desktop.wm.preferences audible-bell false
 # Uniform window controls. Looking at you, Unity.
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Left']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super>Right']"
-gsettings set org.gnome.desktop.wm.keybindings maximize "['<Primary><Super>Up']"
-gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Primary><Super>Down']"
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>Up']"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>Down']"
 
 # Lock screen with <Super>l
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "'<Super>l'"
