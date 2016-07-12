@@ -17,3 +17,6 @@ gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Primary><Super>Dow
 
 # Lock screen with <Super>l
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "'<Super>l'"
+
+# No "Move" with <Alt>+F7. Which happens to be "Find usages" in Netbeans
+gsettings set org.gnome.desktop.wm.keybindings begin-move "['']"
