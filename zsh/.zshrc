@@ -4,6 +4,7 @@ alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias grep='grep --color=auto'
 alias gvim='gvim --remote-tab'
+alias userctl='systemctl --user'
 
 if (( $+commands[thefuck] ))
 then
