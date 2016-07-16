@@ -2,3 +2,15 @@
 *~
 .*.swp
 .DS_Store
+
+# Exclude python cache files
+*.pyc
+*.pyo
+*__pycache__
+
+# Exclude LaTeX garbage files
+*.aux
+*.fdb_latexmk
+*.fls
+*.dvi
+*.toc
