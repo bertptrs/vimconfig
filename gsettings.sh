@@ -20,3 +20,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "'<Super>
 
 # No "Move" with <Alt>+F7. Which happens to be "Find usages" in Netbeans
 gsettings set org.gnome.desktop.wm.keybindings begin-move "['']"
+
+# No F1 button in Gnome Terminal
+gsettings set "org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/" help 'disabled'
