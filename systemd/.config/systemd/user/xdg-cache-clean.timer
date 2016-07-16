@@ -1,0 +1,9 @@
+[Unit]
+Description=Weekly cache dir cleanup
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=default.target
