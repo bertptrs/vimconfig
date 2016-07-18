@@ -7,6 +7,16 @@
 	name = Bert Peters
 	email = bert.ljpeters@gmail.com
 
+[color]
+	ui = auto
+
+[log]
+	abbrevCommit = true
+	follow = true
+
+[commit]
+	verbose = true
+
 [push]
 	default = simple
 
