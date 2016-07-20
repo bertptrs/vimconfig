@@ -1,0 +1,9 @@
+[Unit]
+Description=Cleanup of the XDG_CACHE_HOME directory
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemd-tmpfiles --root=%h --clean %h/.config/tmpfiles/tmpfiles.conf
+
+[Install]
+WantedBy=default.target

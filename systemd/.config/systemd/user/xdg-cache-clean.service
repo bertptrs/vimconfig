@@ -1,7 +1,0 @@
-[Unit]
-Description=Cleanup of the XDG_CACHE_HOME directory
-
-[Service]
-Environment="XDG_CACHE_HOME=%h/.cache"
-Type=oneshot
-ExecStart=/usr/bin/find $XDG_CACHE_HOME -atime +60 -delete -print
