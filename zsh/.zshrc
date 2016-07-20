@@ -1,3 +1,14 @@
+# If connected over SSH and not already in tmux, start tmux.
+if [[ -o interactive ]]; then
+	if [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && hash tmux &> /dev/null; then
+		if tmux has-session &> /dev/null; then
+			exec tmux attach
+		else
+			exec tmux
+		fi
+	fi
+fi
+
 bindkey -e
 # zshrc aliases
 alias ls='ls --color=auto'
