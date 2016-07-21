@@ -1,5 +1,5 @@
 [Unit]
-Description=Cleanup of the XDG_CACHE_HOME directory
+Description=Cleanup of temporary files
 
 [Service]
 Type=oneshot
