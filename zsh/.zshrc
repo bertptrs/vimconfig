@@ -57,8 +57,12 @@ alias help=run-help
 tabs -4
 
 # Add Composer binaries
-if [ -d "$HOME/.composer" ]; then
+if [ -d "$HOME/.composer/vendor/bin" ]; then
 	path+=("$HOME/.composer/vendor/bin")
+fi
+
+if [ -d "$HOME/.config/composer/vendor/bin" ]; then
+    path+=("$HOME/.config/composer/vendor/bin")
 fi
 
 # No matches found for "*"
