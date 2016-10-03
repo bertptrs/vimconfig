@@ -37,3 +37,9 @@ autocmd Filetype markdown setlocal textwidth=72
 
 " Remove trailing whitespace, always.
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Keep backup files etc out of the way
+set undodir=~/.cache/vim/undo " vim will not create this directory.
+set directory=~/.cache/vim/swap " vim will not create this directory.
+set backupdir=~/.cache/vim/backup " vim will not create this directory.
+set viminfo+=n~/.cache/vim/viminfo
