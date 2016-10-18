@@ -45,6 +45,11 @@ installIfAvailable systemctl systemd
 installIfAvailable pacman
 installIfAvailable git
 
+if commandAvailable vim; then
+	echo "Creating vim directories"
+	mkdir -p $HOME/.cache/vim/{backup,swap,undo}
+fi
+
 if commandAvailable gsettings; then
 	echo "Installing gsettings preferences…"
 	./gsettings.sh
