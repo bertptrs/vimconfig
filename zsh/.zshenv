@@ -11,13 +11,13 @@ fi
 
 # Some systems do not set XDG_RUNTIME_DIR, create an alternative.
 if [ -z $XDG_RUNTIME_DIR ]; then
-	if [ -n $TMPDIR ]; then
-		XDG_RUNTIME_DIR = "$TMPDIR/$USERNAME/"
+	if [ -n "$TMPDIR" ]; then
+		XDG_RUNTIME_DIR="$TMPDIR/$USERNAME"
 	else
-		XDG_RUNTIME_DIR = "/tmp/$USERNAME/"
+		XDG_RUNTIME_DIR="/tmp/$USERNAME"
 	fi
 
-	chmod 700 "$XDG_RUNTIME_DIR"
+	mkdir -p "$XDG_RUNTIME_DIR" -m 700
 	export XDG_RUNTIME_DIR
 fi
 
