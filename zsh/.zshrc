@@ -20,8 +20,6 @@ then
 	alias fuck='$(thefuck $(fc -ln -1))'
 fi
 
-export EDITOR=$(which vim)
-
 # Initialize the prompt
 autoload -U promptinit
 promptinit
@@ -56,15 +54,6 @@ alias help=run-help
 # Set sensible tab width
 tabs -4
 
-# Add Composer binaries
-if [ -d "$HOME/.composer/vendor/bin" ]; then
-	path+=("$HOME/.composer/vendor/bin")
-fi
-
-if [ -d "$HOME/.config/composer/vendor/bin" ]; then
-    path+=("$HOME/.config/composer/vendor/bin")
-fi
-
 # No matches found for "*"
 unsetopt nomatch
 
@@ -87,25 +76,6 @@ fi
 # Home and end keys working
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
-
-# XDG Base directory support
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-
-# Additional XDG Base directory files, with partial support.
-export COMPOSER_HOME="$XDG_CONFIG_HOME"/composer
-export COMPOSER_CACHE_DIR="$XDG_CACHE_HOME"/composer
-
-export WINEPREFIX="$XDG_DATA_HOME"/wine
-
-export LESSHISTFILE="$XDG_DATA_HOME/less/history"
-if [ ! -d $(dirname $LESSHISTFILE) ]
-then
-	mkdir -p $(dirname $LESSHISTFILE)
-fi
-
-alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # Transfer.sh plugin
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
