@@ -1,10 +1,11 @@
 # If connected over SSH and not already in tmux, start tmux.
 if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && hash tmux &> /dev/null; then
 	if tmux has-session &> /dev/null; then
-		exec tmux attach
+		tmux attach
 	else
-		exec tmux
+		tmux
 	fi
+	exit $?
 fi
 
 bindkey -e
