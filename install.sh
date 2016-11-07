@@ -37,6 +37,11 @@ git submodule update --init &> /dev/null \
 
 echo "done."
 
+if commandAvailable vim; then
+	echo "Creating vim directories"
+	mkdir -p $HOME/.cache/vim/{backup,swap,undo}
+fi
+
 installIfAvailable vim
 installIfAvailable zsh
 installIfAvailable sqlite3 sqlite
@@ -45,9 +50,10 @@ installIfAvailable systemctl systemd
 installIfAvailable pacman
 installIfAvailable git
 
-if commandAvailable vim; then
-	echo "Creating vim directories"
-	mkdir -p $HOME/.cache/vim/{backup,swap,undo}
+
+if commandAvailable weechat; then
+	echo "Setting up weechat settings…"
+	./weechat.sh
 fi
 
 if commandAvailable gsettings; then
