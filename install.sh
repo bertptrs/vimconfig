@@ -49,6 +49,7 @@ installIfAvailable tmux
 installIfAvailable systemctl systemd
 installIfAvailable pacman
 installIfAvailable git
+installIfAvailable latexmk
 
 
 if commandAvailable weechat; then
