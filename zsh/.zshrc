@@ -26,13 +26,6 @@ autoload -U promptinit
 promptinit
 prompt bart
 
-# No dupes in history
-setopt HIST_IGNORE_DUPS
-
-# Shared history between sessions
-setopt inc_append_history
-setopt share_history
-
 # Setup the CNF hook
 if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
 	source /usr/share/doc/pkgfile/command-not-found.zsh
@@ -82,7 +75,9 @@ bindkey "${terminfo[kend]}" end-of-line
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }; alias transfer=transfer
 
-# The following lines were added by compinstall
+##############################
+# Autocomplete configuration #
+##############################
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' list-colors ''
@@ -96,11 +91,31 @@ zstyle :compinstall filename '/home/bert/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+##########################
+## History configuration #
+##########################
+
+# Shared history between sessions
+setopt inc_append_history
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_expire_dups_first
+setopt extended_history # Record times in history
+setopt hist_ignore_all_dups
+
+# Configure alternative histfile location
 HISTFILE="$XDG_DATA_HOME/zsh/histfile"
 if [ ! -d $(dirname $HISTFILE) ]
 then
 	mkdir -p $(dirname $HISTFILE)
 fi
-HISTSIZE=1000
-SAVEHIST=1000
-setopt autocd notify
+
+# Increase history size
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+
+setopt autocd # Automatically cd to dirs typed
+setopt notify
