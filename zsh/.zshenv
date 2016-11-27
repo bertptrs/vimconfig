@@ -46,3 +46,14 @@ export WINEPREFIX="$XDG_DATA_HOME/wine"
 test -f "$XDG_CONFIG_HOME/tmux/tmux.conf" && alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
 mkdir -p -m 700 "$TMUX_TMPDIR"
+
+# Set up Rubygems
+if hash gem &> /dev/null; then
+	export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
+
+	#TODO: move this to XDG_DATA_HOME
+	export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+	export GEM_PATH=$GEM_HOME
+
+	path+="$GEM_HOME/bin"
+fi

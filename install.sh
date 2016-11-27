@@ -50,7 +50,7 @@ installIfAvailable systemctl systemd
 installIfAvailable pacman
 installIfAvailable git
 installIfAvailable latexmk
-
+installIfAvailable gem
 
 if commandAvailable weechat; then
 	echo "Setting up weechat settings…"
