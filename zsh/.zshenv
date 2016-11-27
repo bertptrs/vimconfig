@@ -80,3 +80,9 @@ export ATOM_HOME="$XDG_DATA_HOME"/atom
 
 # Set up mplayer
 export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
+
+# Set up npm
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+if [[ -d "$XDG_DATA_HOME/npm/bin" ]]; then
+	path+="$XDG_DATA_HOME/npm/bin"
+fi
