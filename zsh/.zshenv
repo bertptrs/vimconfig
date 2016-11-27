@@ -57,3 +57,6 @@ if hash gem &> /dev/null; then
 
 	path+="$GEM_HOME/bin"
 fi
+
+# Set up Weechat alternative directory
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"

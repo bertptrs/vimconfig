@@ -1,6 +1,6 @@
 #!/bin/bash
 
-weechat -r "$(cat <<EOF
+weechat -d "$HOME/.config/weechat" -r "$(cat <<EOF
 /set irc.look.smart_filter on
 /filter add irc_smart * irc_smart_filter *
 
