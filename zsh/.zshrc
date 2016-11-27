@@ -8,6 +8,26 @@ if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && hash tmux &> /
 	exit $?
 fi
 
+#######################
+# Initialize keyboard #
+#######################
+
+autoload zkbd
+function zkbd_file() {
+    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
+    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
+    return 1
+}
+
+[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
+keyfile=$(zkbd_file)
+if [[ $? -eq 0 ]]; then
+    source "${keyfile}"
+elif [[ -o interactive ]]; then
+	echo "Unable to load key data for special keys. Run zkbd to fix."
+fi
+unfunction zkbd_file; unset keyfile
+
 bindkey -e
 # zshrc aliases
 alias ls='ls --color=auto'
@@ -68,8 +88,8 @@ if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 fi
 
 # Home and end keys working
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+bindkey "${key[Home]}" beginning-of-line
+bindkey "${key[End]}" end-of-line
 
 # Transfer.sh plugin
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
