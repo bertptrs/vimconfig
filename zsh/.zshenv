@@ -60,3 +60,23 @@ fi
 
 # Set up Weechat alternative directory
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+
+# Set up ipython/jupyter
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
+# Set up GIMP
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
+
+# Set up NVIDIA tools
+export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
+# Set up libice
+export ICEAUTHORITY="$XDG_RUNTIME_DIR"/X11/iceauthority
+
+# Set up atom
+export ATOM_HOME="$XDG_DATA_HOME"/atom
+
+# Set up mplayer
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
