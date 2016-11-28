@@ -86,3 +86,9 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 if [[ -d "$XDG_DATA_HOME/npm/bin" ]]; then
 	path+="$XDG_DATA_HOME/npm/bin"
 fi
+
+# Set up Vagrant
+export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+
+# Set up sqlite3
+test -f "$XDG_CONFIG_HOME/sqlite3/sqliterc" && alias sqlite3="sqlite3 -init \"$XDG_CONFIG_HOME/sqlite3/sqliterc\""
