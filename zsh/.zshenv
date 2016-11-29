@@ -52,7 +52,7 @@ if hash gem &> /dev/null; then
 	export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 
 	#TODO: move this to XDG_DATA_HOME
-	export GEM_HOME=$(ruby -e 'puts Gem.user_dir')
+	export GEM_HOME=$(ruby -e 'puts Gem.user_dir' 2>/dev/null)
 	export GEM_PATH=$GEM_HOME
 
 	path+="$GEM_HOME/bin"
@@ -92,3 +92,6 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 
 # Set up sqlite3
 test -f "$XDG_CONFIG_HOME/sqlite3/sqliterc" && alias sqlite3="sqlite3 -init \"$XDG_CONFIG_HOME/sqlite3/sqliterc\""
+
+# Move all .*_history files
+export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
