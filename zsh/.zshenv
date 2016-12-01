@@ -68,13 +68,6 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 # Set up GIMP
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 
-# Set up NVIDIA tools
-export __GL_SHADER_DISK_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-
-# Set up libice
-export ICEAUTHORITY="$XDG_RUNTIME_DIR"/X11/iceauthority
-
 # Set up atom
 export ATOM_HOME="$XDG_DATA_HOME"/atom
 
@@ -92,6 +85,3 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 
 # Set up sqlite3
 test -f "$XDG_CONFIG_HOME/sqlite3/sqliterc" && alias sqlite3="sqlite3 -init \"$XDG_CONFIG_HOME/sqlite3/sqliterc\""
-
-# Move all .*_history files
-export RLWRAP_HOME="$XDG_DATA_HOME"/rlwrap
