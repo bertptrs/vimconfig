@@ -52,6 +52,7 @@ installIfAvailable git
 installIfAvailable latexmk
 installIfAvailable gem
 installIfAvailable npm
+installIfAvailable python
 
 if commandAvailable weechat; then
 	echo "Setting up weechat settings…"
