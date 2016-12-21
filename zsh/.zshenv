@@ -21,6 +21,12 @@ if [ -z $XDG_RUNTIME_DIR ]; then
 	export XDG_RUNTIME_DIR
 fi
 
+# Make gnome-keyring available
+if [ -n "$DESKTOP_SESSION" ] && hash gnome-keyring-daemon &> /dev/null; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
+
 # Set up less
 export LESS='-x4 -SR'
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
