@@ -1,0 +1,5 @@
+# Configure compose key as capslock
+setxkbmap -option compose:caps
+xset -b
+
+owncloud &

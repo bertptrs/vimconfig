@@ -53,6 +53,8 @@ installIfAvailable latexmk
 installIfAvailable gem
 installIfAvailable npm
 installIfAvailable python
+installIfAvailable Xorg
+installIfAvailable awesome
 
 if commandAvailable weechat; then
 	echo "Setting up weechat settings…"
