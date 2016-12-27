@@ -58,7 +58,7 @@ local layouts =
     awful.layout.suit.spiral,
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
     awful.layout.suit.magnifier
 }
@@ -184,9 +184,16 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
+    if s == 1 then
+		right_layout:add(wibox.widget.systray())
+    end
+
+	local battery = require("battery")
+
     right_layout:add(mytextclock)
+	right_layout:add(battery)
     right_layout:add(mylayoutbox[s])
+
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
@@ -267,7 +274,13 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+	awful.key({ modkey }, "p", function() menubar.show() end),
+
+	-- Backlight control
+	awful.key({ }, "XF86MonBrightnessDown", function ()
+		awful.util.spawn("xbacklight -dec 15") end),
+	awful.key({ }, "XF86MonBrightnessUp", function ()
+		awful.util.spawn("xbacklight -inc 15") end)
 )
 
 clientkeys = awful.util.table.join(

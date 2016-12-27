@@ -3,3 +3,4 @@ setxkbmap -option compose:caps
 xset -b
 
 owncloud &
+hash xscreensaver && xscreensaver -no-splash &
