@@ -9,6 +9,9 @@ if [ -z $XDG_DATA_HOME ]; then
 	export XDG_DATA_HOME="$HOME/.local/share"
 fi
 
+# Move the remaining zsh installation
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 # Some systems do not set XDG_RUNTIME_DIR, create an alternative.
 if [ -z $XDG_RUNTIME_DIR ]; then
 	if [ -n "$TMPDIR" ]; then

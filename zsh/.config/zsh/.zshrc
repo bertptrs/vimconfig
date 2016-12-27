@@ -13,20 +13,13 @@ fi
 #######################
 
 autoload zkbd
-function zkbd_file() {
-    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
-    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
-    return 1
-}
-
-[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
-keyfile=$(zkbd_file)
-if [[ $? -eq 0 ]]; then
+keyfile="$XDG_CONFIG_HOME/zsh/zkbd/${TERM}"
+if [[ -f ${keyfile} ]]; then
     source "${keyfile}"
 elif [[ -o interactive ]]; then
 	echo "Unable to load key data for special keys. Run zkbd to fix."
 fi
-unfunction zkbd_file; unset keyfile
+unset keyfile
 
 bindkey -e
 # zshrc aliases
