@@ -10,6 +10,7 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local volume = require("volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -191,6 +192,7 @@ for s = 1, screen.count() do
 	local battery = require("battery")
 
     right_layout:add(mytextclock)
+	right_layout:add(volume)
 	right_layout:add(battery)
     right_layout:add(mylayoutbox[s])
 
@@ -275,6 +277,11 @@ globalkeys = awful.util.table.join(
               end),
     -- Menubar
 	awful.key({ modkey }, "p", function() menubar.show() end),
+
+	-- Volume control
+	awful.key({ }, "XF86AudioLowerVolume", function () volume.decrease() end),
+	awful.key({ }, "XF86AudioRaiseVolume", function () volume.increase() end),
+	awful.key({ }, "XF86AudioMute", function () volume.mute() end),
 
 	-- Backlight control
 	awful.key({ }, "XF86MonBrightnessDown", function ()
