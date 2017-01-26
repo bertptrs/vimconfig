@@ -24,7 +24,7 @@
 	url = https://github.com/ynkdir/vim-vimlparser
 [submodule "vim/bundle/vim-latex"]
 	path = vim/.vim/bundle/vim-latex
-	url = git@github.com:lervag/vim-latex.git
+	url = https://github.com/lervag/vim-latex.git
 [submodule "vim/bundle/shebang"]
 	path = vim/.vim/bundle/shebang
 	url = https://github.com/vim-scripts/Shebang
