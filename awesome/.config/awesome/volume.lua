@@ -24,9 +24,9 @@ local function volume_command (command)
 	local base = "amixer set Master "
 
 	if command == "mute" then
-		awful.util.spawn(base .. "toggle")
+		awful.spawn(base .. "toggle")
 	else
-		awful.util.spawn(base .. step .. command)
+		awful.spawn(base .. step .. command)
 	end
 
 	vicious.force({widget})

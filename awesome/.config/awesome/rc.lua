@@ -19,7 +19,7 @@ do
 	}
 
 	for _,i in pairs(programs) do
-		awful.util.spawn(i)
+		awful.spawn(i)
 	end
 end
 
@@ -339,9 +339,9 @@ globalkeys = awful.util.table.join(
 
 	-- Backlight control
 	awful.key({ }, "XF86MonBrightnessDown", function ()
-		awful.util.spawn("xbacklight -dec 15") end),
+		awful.spawn("xbacklight -dec 15") end),
 	awful.key({ }, "XF86MonBrightnessUp", function ()
-		awful.util.spawn("xbacklight -inc 15") end)
+		awful.spawn("xbacklight -inc 15") end)
 )
 
 clientkeys = awful.util.table.join(
