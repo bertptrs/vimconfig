@@ -62,7 +62,6 @@ if hash gem &> /dev/null; then
 
 	#TODO: move this to XDG_DATA_HOME
 	export GEM_HOME=$(ruby -e 'puts Gem.user_dir' 2>/dev/null)
-	export GEM_PATH=$GEM_HOME
 
 	path+="$GEM_HOME/bin"
 fi
