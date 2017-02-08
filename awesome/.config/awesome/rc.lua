@@ -15,7 +15,8 @@ local volume = require("volume")
 -- Startup programs
 do
 	local programs = {
-		"owncloud"
+		"owncloud",
+		"gnome-screensaver"
 	}
 
 	for _,i in pairs(programs) do
@@ -341,7 +342,10 @@ globalkeys = awful.util.table.join(
 	awful.key({ }, "XF86MonBrightnessDown", function ()
 		awful.spawn("xbacklight -dec 15") end),
 	awful.key({ }, "XF86MonBrightnessUp", function ()
-		awful.spawn("xbacklight -inc 15") end)
+		awful.spawn("xbacklight -inc 15") end),
+
+	-- Lock screen
+	awful.key({ modkey, "Shift" }, "l", function () awful.spawn("gnome-screensaver-command --lock") end)
 )
 
 clientkeys = awful.util.table.join(
