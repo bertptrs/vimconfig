@@ -101,3 +101,6 @@ export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 if [[ -d "$HOME/.local/bin" ]]; then
 	path+="$HOME/.local/bin"
 fi
+
+# Set up GIMP
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp

@@ -28,6 +28,7 @@ alias ll='ls -lh'
 alias grep='grep --color=auto'
 alias gvim='gvim --remote-tab'
 alias userctl='systemctl --user'
+alias :q='exit'
 
 if (( $+commands[thefuck] ))
 then

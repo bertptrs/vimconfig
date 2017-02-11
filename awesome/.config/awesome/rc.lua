@@ -16,6 +16,7 @@ local volume = require("volume")
 do
 	local programs = {
 		"owncloud",
+		"xfce4-power-manager",
 		"gnome-screensaver"
 	}
 
