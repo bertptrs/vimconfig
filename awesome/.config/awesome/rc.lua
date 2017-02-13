@@ -15,7 +15,7 @@ local volume = require("volume")
 -- Startup programs
 do
 	local programs = {
-		"owncloud",
+		"nextcloud",
 		"xfce4-power-manager",
 		"gnome-screensaver"
 	}
@@ -220,7 +220,6 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
 			volume,
-			require("battery"),
             s.mylayoutbox
         },
     }
