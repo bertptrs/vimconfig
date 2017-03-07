@@ -3,3 +3,5 @@ setxkbmap -option compose:caps
 xset -b
 
 compton -b
+
+source ~/.zshenv
