@@ -345,7 +345,12 @@ globalkeys = awful.util.table.join(
 		awful.spawn("xbacklight -inc 15") end),
 
 	-- Lock screen
-	awful.key({ modkey, "Shift" }, "l", function () awful.spawn("gnome-screensaver-command --lock") end)
+	awful.key({ modkey, "Shift" }, "l", function () awful.spawn("gnome-screensaver-command --lock") end),
+
+	-- Print screen tools
+	awful.key({ }, "Print", function () awful.spawn("gnome-screenshot") end),
+	awful.key({ "Shift" }, "Print", function () awful.spawn("gnome-screenshot -w") end),
+	awful.key({ "Control" }, "Print", function () awful.spawn("gnome-screenshot -a") end)
 )
 
 clientkeys = awful.util.table.join(
