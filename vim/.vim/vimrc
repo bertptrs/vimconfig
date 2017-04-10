@@ -43,3 +43,6 @@ set undodir=~/.cache/vim/undo " vim will not create this directory.
 set directory=~/.cache/vim/swap " vim will not create this directory.
 set backupdir=~/.cache/vim/backup " vim will not create this directory.
 set viminfo+=n~/.cache/vim/viminfo
+
+" Death to the "Thanks for flying vim" message
+set titleold=""
