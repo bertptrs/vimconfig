@@ -145,3 +145,11 @@ SAVEHIST=$HISTSIZE
 
 setopt autocd # Automatically cd to dirs typed
 setopt notify
+
+###########################
+# Configure terimal title #
+###########################
+precmd ()
+{
+	print -Pn "\e]0;%n@%m: %2~\a"
+}
