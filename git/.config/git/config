@@ -26,5 +26,11 @@
 [help]
 	autocorrect = 10
 
-[branch]
-	autosetuprebase = always
+[pull]
+	rebase = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
