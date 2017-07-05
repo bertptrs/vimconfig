@@ -146,10 +146,18 @@ SAVEHIST=$HISTSIZE
 setopt autocd # Automatically cd to dirs typed
 setopt notify
 
-###########################
-# Configure terimal title #
-###########################
+############################
+# Configure terminal title #
+############################
 precmd ()
 {
 	print -Pn "\e]0;%n@%m: %2~\a"
+}
+
+preexec ()
+{
+	if [ -n $1 ]; then
+		cmd=${1:0:20}
+		print -Pn "\e]0;$1\a"
+	fi
 }
