@@ -50,3 +50,6 @@ set viminfo+=n~/.cache/vim/viminfo
 
 " Death to the "Thanks for flying vim" message
 set titleold=""
+
+" Fix an annoying issue in vim-latex
+let g:tex_conceal = ""
