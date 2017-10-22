@@ -53,8 +53,6 @@ export WINEPREFIX="$XDG_DATA_HOME/wine"
 
 # Setup tmux
 test -f "$XDG_CONFIG_HOME/tmux/tmux.conf" && alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
-mkdir -p -m 700 "$TMUX_TMPDIR"
 
 # Set up Rubygems
 if hash gem &> /dev/null; then
