@@ -14,3 +14,6 @@
 *.fls
 *.dvi
 *.toc
+
+# Exclude IDE files
+.idea
