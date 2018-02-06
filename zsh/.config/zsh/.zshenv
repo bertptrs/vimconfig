@@ -105,3 +105,8 @@ export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 
 # Set up OpenSSL
 export RANDFILE=$XDG_RUNTIME_DIR/rnd
+
+# Set up various history files
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
+export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
+export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
