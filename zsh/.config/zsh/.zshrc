@@ -1,5 +1,5 @@
 # If connected over SSH and not already in tmux, start tmux.
-if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && hash tmux &> /dev/null; then
+if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && type tmux &> /dev/null; then
 	if tmux has-session &> /dev/null; then
 		tmux attach
 	else
@@ -162,3 +162,9 @@ preexec ()
 		print -Pn "\e]0;$1\a"
 	fi
 }
+
+# Make gnome-keyring available
+if [[ -z $SSH_AUTH_SOCK ]] && type gnome-keyring-daemon &> /dev/null; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi

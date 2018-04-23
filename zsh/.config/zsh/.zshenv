@@ -24,11 +24,6 @@ if [ -z $XDG_RUNTIME_DIR ]; then
 	export XDG_RUNTIME_DIR
 fi
 
-# Make gnome-keyring available
-if [ -n "$DESKTOP_SESSION" ] && hash gnome-keyring-daemon &> /dev/null; then
-	eval $(gnome-keyring-daemon --start)
-	export SSH_AUTH_SOCK
-fi
 
 # Set up less
 export LESS='-x4 -SR'
@@ -36,7 +31,7 @@ export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 test -d $(dirname $LESSHISTFILE) || mkdir -p $(dirname $LESSHISTFILE)
 
 # Set up editor and vim
-if hash vim &> /dev/null; then
+if type vim &> /dev/null; then
 	export EDITOR=vim
 fi
 
@@ -55,7 +50,7 @@ export WINEPREFIX="$XDG_DATA_HOME/wine"
 test -f "$XDG_CONFIG_HOME/tmux/tmux.conf" && alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # Set up Rubygems
-if hash gem &> /dev/null; then
+if type gem &> /dev/null; then
 	export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 
 	#TODO: move this to XDG_DATA_HOME
