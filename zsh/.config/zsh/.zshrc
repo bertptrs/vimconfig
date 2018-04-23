@@ -133,6 +133,9 @@ setopt hist_expire_dups_first
 setopt extended_history # Record times in history
 setopt hist_ignore_all_dups
 
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
 # Configure alternative histfile location
 HISTFILE="$XDG_DATA_HOME/zsh/histfile"
 if [ ! -d $(dirname $HISTFILE) ]
