@@ -165,9 +165,3 @@ preexec ()
 		print -Pn "\e]0;$1\a"
 	fi
 }
-
-# Make gnome-keyring available
-if [[ -z $SSH_AUTH_SOCK ]] && type gnome-keyring-daemon &> /dev/null; then
-	eval $(gnome-keyring-daemon --start)
-	export SSH_AUTH_SOCK
-fi
