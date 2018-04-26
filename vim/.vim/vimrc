@@ -15,6 +15,8 @@ set background=light
 set tabstop=4 softtabstop=4 shiftwidth=4
 set backspace=eol,indent,start
 
+set diffopt+=iwhite
+
 colorscheme molokai
 
 " I have never intended to use the builtin help
