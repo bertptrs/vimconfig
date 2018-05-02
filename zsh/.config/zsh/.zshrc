@@ -9,7 +9,7 @@ if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && type tmux &> /
 fi
 
 # Check for service-managed keyring
-if [[-z $SSH_AUTH_SOCK ]] && [[ -S $XDG_RUNTIME_DIR/ssh-agent.socket ]]; then
+if [[ -z $SSH_AUTH_SOCK ]] && [[ -S $XDG_RUNTIME_DIR/ssh-agent.socket ]]; then
 	export SSH_AUTH_SOCKET="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
