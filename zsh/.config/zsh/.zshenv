@@ -105,13 +105,3 @@ export RANDFILE=$XDG_RUNTIME_DIR/rnd
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
-
-# Make sure a keyring is available
-if [[ -z $SSH_AUTH_SOCK ]]; then
-	if [[ -n $DESKTOP_SESSION ]] && type gnome-keyring-daemon &> /dev/null; then
-		eval $(gnome-keyring-daemon --start)
-		export SSH_AUTH_SOCK
-	elif type ssh-agent &> /dev/null; then
-		eval $(ssh-agent)
-	fi
-fi
