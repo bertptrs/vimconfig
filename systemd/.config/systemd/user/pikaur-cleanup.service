@@ -1,0 +1,7 @@
+[Unit]
+Description=Clean up locally built pikaur packages
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/paccache -c %h/.cache/pikaur/pkg -r --nocolor -v
+ExecStart=/usr/bin/paccache -c %h/.cache/pikaur/pkg -r --nocolor -v -u -k0
