@@ -42,9 +42,7 @@ then
 fi
 
 # Initialize the prompt
-autoload -U promptinit
-promptinit
-prompt bart
+source "${ZDOTDIR:-$HOME}/.zshtheme"
 
 # Setup the CNF hook
 if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then

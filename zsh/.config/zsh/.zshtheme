@@ -1,0 +1,44 @@
+# vim: setf zsh
+
+# Allow color escape sequences to be available
+autoload -U colors && colors
+
+# Allow calling functions inside prompt
+setopt PROMPT_SUBST
+
+function prompt_last_cmd() {
+	if [[ $HISTCMD -gt 0 ]]; then
+		echo $history[$((HISTCMD - 1))]
+	fi
+}
+
+function prompt_ps1() {
+	local ps1 rs='%b%f%k'
+    local dir="%{$fg[%~]%}%8~$rs"
+	local hist="%{$fg[blue]%}[\$(prompt_last_cmd)]$rs "
+	local host="%{$fg[red]%}%m "
+
+	local prompt="%n@%{$fg[cyan]%}%m$rs %(#.#.\$) "
+	ps1=(
+		"$host"
+		"$hist"
+		"$dir"
+		$'\n'
+		"$prompt"
+	)
+    echo "${(j::)ps1}"
+}
+
+function prompt_rprompt() {
+	local rprompt rs='%b%f%k' hist1 hist2
+	local exit_status="%(?..%{$fg[red]%}- %{$fg_bold[yellow]%}%? %b%{$fg[red]%}-$rs )"
+	local datetime="%D %{$fg[red]%}%T%{$reset_color%}"
+	rprompt=(
+		"$exit_status"
+		"$datetime"
+	)
+    echo "${(j::)rprompt}"
+}
+
+PS1="$(prompt_ps1)"
+RPROMPT="$(prompt_rprompt)"
