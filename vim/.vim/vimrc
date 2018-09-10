@@ -18,6 +18,7 @@ set backspace=eol,indent,start
 set diffopt+=iwhite
 
 colorscheme molokai
+set colorcolumn=72
 
 " I have never intended to use the builtin help
 map <F1> <Esc>
