@@ -12,6 +12,12 @@ function prompt_last_cmd() {
 	fi
 }
 
+function prompt_handle_virtualenv() {
+	if [[ -n $VIRTUAL_ENV ]]; then
+		echo "%{$fg_bold[green]%}🐍 $(basename $VIRTUAL_ENV)%b%f%k "
+	fi
+}
+
 function prompt_ps1() {
 	local ps1 rs='%b%f%k'
     local dir="%{$fg[%~]%}%8~$rs"
@@ -24,6 +30,7 @@ function prompt_ps1() {
 		"$hist"
 		"$dir"
 		$'\n'
+		'$(prompt_handle_virtualenv)'
 		"$prompt"
 	)
     echo "${(j::)ps1}"
@@ -42,3 +49,6 @@ function prompt_rprompt() {
 
 PS1="$(prompt_ps1)"
 RPROMPT="$(prompt_rprompt)"
+
+# We handle virtualenv ourselves, no need to do it twice.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
