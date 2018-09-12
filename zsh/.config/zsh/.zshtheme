@@ -6,6 +6,13 @@ autoload -U colors && colors
 # Allow calling functions inside prompt
 setopt PROMPT_SUBST
 
+PROMPT_VENV_INDICATOR="🐍"
+
+if [[ $(echo $PROMPT_VENV_INDICATOR | wc -L) -ne 2 ]]; then
+	# Workaround for older systems
+	PROMPT_VENV_INDICATOR="p:"
+fi
+
 function prompt_last_cmd() {
 	if [[ $HISTCMD -gt 0 ]]; then
 		echo $history[$((HISTCMD - 1))]
@@ -14,7 +21,7 @@ function prompt_last_cmd() {
 
 function prompt_handle_virtualenv() {
 	if [[ -n $VIRTUAL_ENV ]]; then
-		echo "%{$fg_bold[green]%}🐍 $(basename $VIRTUAL_ENV)%b%f%k "
+		echo "%{$fg_bold[green]%}$PROMPT_VENV_INDICATOR $(basename $VIRTUAL_ENV)%b%f%k "
 	fi
 }
 
