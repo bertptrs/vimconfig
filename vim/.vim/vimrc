@@ -47,7 +47,15 @@ autocmd Filetype markdown setlocal textwidth=72 expandtab
 autocmd Filetype haskell setlocal expandtab
 
 " Remove trailing whitespace, always.
-autocmd BufWritePre * :%s/\s\+$//e
+fun! StripTrailingWhitespace()
+	" Skip files where the type is trailing space sensitive.
+	if &ft =~ 'diff'
+		return
+	endif
+	%s/\s\+$//e
+endfun
+
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Keep backup files etc out of the way
 set undofile
