@@ -1,5 +1,7 @@
 execute pathogen#infect()
 
+scriptencoding utf-8
+
 filetype plugin indent on
 filetype plugin on
 syntax on
@@ -72,3 +74,12 @@ set titleold=""
 
 " Fix an issue with the indentLine plugin.
 let g:indentLine_concealcursor='nc'
+
+" Make sure we use the expected clipboard
+set clipboard=unnamedplus
+
+" Configure line breaking
+set linebreak
+set breakindent
+set breakindentopt=min:0,shift:4,sbr
+set showbreak="↳"
