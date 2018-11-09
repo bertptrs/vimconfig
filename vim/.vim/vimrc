@@ -82,4 +82,4 @@ set clipboard=unnamedplus
 set linebreak
 set breakindent
 set breakindentopt=min:0,shift:4,sbr
-set showbreak="↳"
+set showbreak=↳
