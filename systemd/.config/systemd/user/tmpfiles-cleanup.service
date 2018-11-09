@@ -4,6 +4,7 @@ Description=Cleanup of temporary files
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/systemd-tmpfiles --root=%h --clean %h/.config/tmpfiles/tmpfiles.conf
+ExecStart=/usr/bin/find %h/.cache/pacman/sources -type f -maxdepth 1 -delete
 
 [Install]
 WantedBy=default.target
