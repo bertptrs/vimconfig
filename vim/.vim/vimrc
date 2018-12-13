@@ -33,6 +33,9 @@ imap <F5> <Esc>:update<CR>:make<CR>
 map <F7> :call SetExecutable()<CR>
 imap <F7> <Esc>:call SetExecutable<CR>
 
+" Paste using Ctrl+V in insert mode.
+inoremap <C-v> <C-o>"+P<C-o>=']
+
 "language specific syntastic configurtion
 "syntastic configuration
 set statusline+=%#warningmsg#
