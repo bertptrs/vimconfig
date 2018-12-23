@@ -35,14 +35,6 @@ if type vim &> /dev/null; then
 	export EDITOR=vim
 fi
 
-# Set up compoer
-export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"
-export COMPOSER_CACHE_DIR="$XDG_CACHE_HOME/composer"
-
-if [ -d "$COMPOSER_HOME/vendor/bin" ]; then
-	path+="$COMPOSER_HOME/vendor/bin"
-fi
-
 # Set up wine
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 
