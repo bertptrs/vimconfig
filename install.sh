@@ -52,7 +52,6 @@ installIfAvailable git
 installIfAvailable latexmk
 installIfAvailable ruby
 installIfAvailable npm
-installIfAvailable python
 installIfAvailable Xorg
 installIfAvailable awesome
 
