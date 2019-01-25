@@ -43,12 +43,7 @@ test -f "$XDG_CONFIG_HOME/tmux/tmux.conf" && alias tmux="tmux -f $XDG_CONFIG_HOM
 
 # Set up Rubygems
 if type gem &> /dev/null; then
-	export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
-
-	#TODO: move this to XDG_DATA_HOME
-	export GEM_HOME=$(ruby -e 'puts Gem.user_dir' 2>/dev/null)
-
-	path+="$GEM_HOME/bin"
+	path+="$HOME/.gem/bin"
 fi
 
 # Set up Weechat alternative directory

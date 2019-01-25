@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd "$( dirname "${BASH_SOURCE[0]}" )"
+cd "$( dirname "${BASH_SOURCE[0]}" )" || exit 1
 
 commandAvailable() {
-	command -v $1 >/dev/null
+	command -v "$1" >/dev/null
 }
 
 installIfAvailable() {
@@ -19,9 +19,9 @@ installIfAvailable() {
 		PACKAGE=$COMMAND
 	fi
 
-	if commandAvailable $COMMAND; then
+	if commandAvailable "$COMMAND"; then
 		echo "Installing configuration files for $PACKAGE…"
-		stow -t $HOME $PACKAGE
+		stow -t "$HOME" "$PACKAGE"
 	fi
 }
 
@@ -39,7 +39,7 @@ echo "done."
 
 if commandAvailable vim; then
 	echo "Creating vim directories"
-	mkdir -p $HOME/.cache/vim/{backup,swap,undo}
+	mkdir -p "$HOME/.cache/vim/"{backup,swap,undo}
 fi
 
 installIfAvailable vim
@@ -50,7 +50,7 @@ installIfAvailable systemctl systemd
 installIfAvailable pacman
 installIfAvailable git
 installIfAvailable latexmk
-installIfAvailable gem
+installIfAvailable ruby
 installIfAvailable npm
 installIfAvailable python
 installIfAvailable Xorg
