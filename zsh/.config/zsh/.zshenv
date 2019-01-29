@@ -74,9 +74,6 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 # Set up sqlite3
 test -f "$XDG_CONFIG_HOME/sqlite3/sqliterc" && alias sqlite3="sqlite3 -init \"$XDG_CONFIG_HOME/sqlite3/sqliterc\""
 
-# Set up cargo
-export CARGO_HOME="$XDG_CACHE_HOME/cargo"
-
 # Add local binaries to path
 if [[ -d "$HOME/.local/bin" ]]; then
 	path+="$HOME/.local/bin"
