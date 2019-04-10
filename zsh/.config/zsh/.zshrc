@@ -55,6 +55,8 @@ then
 	alias fuck='$(thefuck $(fc -ln -1))'
 fi
 
+eval "$(dircolors)"
+
 # Colored man output
 man() {
 	LESS_TERMCAP_md=$'\e[01;36m' \
