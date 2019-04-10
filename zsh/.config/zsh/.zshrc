@@ -1,5 +1,16 @@
-# If connected over SSH and not already in tmux, start tmux.
-if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && type tmux &> /dev/null; then
+# Check if we want a multiplexer.
+#
+# We want one if we are either:
+# - connected over SSH (for security), or
+# - using alacritty, since it doesn't have tabs.
+function want_multiplexer() {
+	[[ $TERM == "alacritty" ]] || \
+		[[ -n $SSH_TTY ]]
+}
+
+
+# If we want a multiplexer and not already in tmux, start tmux.
+if [[ -o interactive ]] && want_multiplexer && [[ -z $TMUX ]] && type tmux &> /dev/null; then
 	if tmux has-session &> /dev/null; then
 		tmux attach
 	else
@@ -7,6 +18,8 @@ if [[ -o interactive ]] && [[ -n $SSH_TTY ]] && [[ -z $TMUX ]] && type tmux &> /
 	fi
 	exit $?
 fi
+
+unset -f want_multiplexer
 
 # Check for service-managed keyring
 if [[ -z $SSH_AUTH_SOCK ]] && [[ -S $XDG_RUNTIME_DIR/ssh-agent.socket ]]; then
