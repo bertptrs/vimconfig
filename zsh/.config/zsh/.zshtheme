@@ -21,19 +21,18 @@ function prompt_last_cmd() {
 
 function prompt_handle_virtualenv() {
 	if [[ -n $VIRTUAL_ENV ]]; then
-		echo "%{$fg_bold[green]%}$PROMPT_VENV_INDICATOR $(basename $VIRTUAL_ENV)%b%f%k "
+		echo "%{$fg_bold[green]%}%S$PROMPT_VENV_INDICATOR%s $(basename $VIRTUAL_ENV)%b%f%k "
 	fi
 }
 
 function prompt_ps1() {
-	local ps1 rs='%b%f%k'
+	local ps1 rs='%b%f%k%s'
     local dir="%{$fg[%~]%}%8~$rs"
-	local hist="%(?.%{$fg[blue]%}.%{$bg[blue]%}%{$fg[black]%})[\$(prompt_last_cmd)]$rs "
-	local host
-	if [[ -n SSH_TTY ]]; then
-		host="%{$bg[red]%}%{$fg_bold[black]%}%m$rs "
-	else
-		host="%{$fg[red]%}%m$rs "
+	local hist="%{$fg[blue]%}%(?..%S)[\$(prompt_last_cmd)]$rs "
+	local host="%{$fg[red]%}%m$rs "
+	# Highlight the hostname if we are connected over SSH
+	if [[ -n $SSH_TTY ]]; then
+		host="%S%B$host"
 	fi
 
 	local prompt="%n@%{$fg[cyan]%}%m$rs %# "
