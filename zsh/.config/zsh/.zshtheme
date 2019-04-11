@@ -28,8 +28,13 @@ function prompt_handle_virtualenv() {
 function prompt_ps1() {
 	local ps1 rs='%b%f%k'
     local dir="%{$fg[%~]%}%8~$rs"
-	local hist="%{$fg[blue]%}[\$(prompt_last_cmd)]$rs "
-	local host="%{$fg[red]%}%m "
+	local hist="%(?.%{$fg[blue]%}.%{$bg[blue]%}%{$fg[black]%})[\$(prompt_last_cmd)]$rs "
+	local host
+	if [[ -n SSH_TTY ]]; then
+		host="%{$bg[red]%}%{$fg_bold[black]%}%m$rs "
+	else
+		host="%{$fg[red]%}%m$rs "
+	fi
 
 	local prompt="%n@%{$fg[cyan]%}%m$rs %# "
 	ps1=(
