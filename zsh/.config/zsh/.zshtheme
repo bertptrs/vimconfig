@@ -3,6 +3,21 @@
 # Allow color escape sequences to be available
 autoload -U colors && colors
 
+# Initialize VCS prompt configuration
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-staged-changes true
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s@%r%F{5})%F{3} - %F{5}[%F{2}%u%b%c%F{3}|%F{1}%a%F{5}]%f'
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s@%r%F{5})%F{3} - %F{5}[%F{2}%u%b%c%F{5}]%f'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' unstagedstr '~'
+zstyle ':vcs_info:*' stagedstr   '±'
+
+
 # Allow calling functions inside prompt
 setopt PROMPT_SUBST
 
@@ -42,6 +57,7 @@ function prompt_ps1() {
 		"$dir"
 		$'\n'
 		'$(prompt_handle_virtualenv)'
+		'${vcs_info_msg_0_:+${vcs_info_msg_0_}\n}'
 		"$prompt"
 	)
     echo "${(j::)ps1}"
@@ -56,6 +72,20 @@ function prompt_rprompt() {
 		"$datetime"
 	)
     echo "${(j::)rprompt}"
+}
+
+function precmd () {
+	# Set window title to username@machine: pwd
+	print -Pn "\e]0;%n@%m: %2~\a"
+	# Load VCS info
+	vcs_info
+}
+
+function preexec () {
+	# Set window title to command about to be executed.
+	if [[ -n $1 ]]; then
+		print -Pn "\e]0;$1\a"
+	fi
 }
 
 PS1="$(prompt_ps1)"
