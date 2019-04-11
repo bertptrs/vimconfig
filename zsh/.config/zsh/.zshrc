@@ -57,17 +57,6 @@ fi
 
 eval "$(dircolors)"
 
-# Colored man output
-man() {
-	LESS_TERMCAP_md=$'\e[01;36m' \
-		LESS_TERMCAP_me=$'\e[0m' \
-		LESS_TERMCAP_se=$'\e[0m' \
-		LESS_TERMCAP_so=$'\e[01;44;33m' \
-		LESS_TERMCAP_ue=$'\e[0m' \
-		LESS_TERMCAP_us=$'\e[01;33m' \
-		command man "$@"
-}
-
 # Initialize the prompt
 source "${ZDOTDIR:-$HOME}/.zshtheme"
 
