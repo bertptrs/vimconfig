@@ -139,6 +139,8 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/bert/.zshrc'
 
 autoload -Uz compinit
+# Register our custom completions
+fpath+=("${ZDOTDIR:-$HOME}/completions")
 compinit
 
 # pip zsh completion start
