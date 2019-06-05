@@ -3,7 +3,7 @@ Description=SOCKS proxy to the liacs network
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/ssh -v -N -D 12345 gold.liacs.nl
+ExecStart=/usr/bin/ssh -v -N -D 12345 silver.liacs.nl
 Restart=no
 
 [Install]
