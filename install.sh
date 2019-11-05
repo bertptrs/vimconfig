@@ -54,6 +54,7 @@ installIfAvailable ruby
 installIfAvailable npm
 installIfAvailable Xorg
 installIfAvailable awesome
+installIfAvailable sakura
 
 if commandAvailable weechat; then
 	echo "Setting up weechat settings…"
