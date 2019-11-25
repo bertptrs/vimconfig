@@ -17,3 +17,4 @@
 
 # Exclude IDE files
 .idea
+cmake-build-*
