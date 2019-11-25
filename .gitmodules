@@ -4,9 +4,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/.vim/bundle/molokai
 	url = https://github.com/tomasr/molokai
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/.vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown
 [submodule "vim/bundle/vim-less"]
 	path = vim/.vim/bundle/vim-less
 	url = https://github.com/lunaru/vim-less
