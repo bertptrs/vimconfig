@@ -1,39 +1,36 @@
-[submodule "vim/pathogen"]
-	path = vim/.vim/pathogen
-	url = https://github.com/tpope/vim-pathogen
 [submodule "vim/bundle/molokai"]
-	path = vim/.vim/bundle/molokai
+	path = vim/.vim/pack/bundle/start/molokai
 	url = https://github.com/tomasr/molokai
 [submodule "vim/bundle/vim-less"]
-	path = vim/.vim/bundle/vim-less
+	path = vim/.vim/pack/bundle/start/vim-less
 	url = https://github.com/lunaru/vim-less
 [submodule "vim/bundle/syntastic"]
-	path = vim/.vim/bundle/syntastic
+	path = vim/.vim/pack/bundle/start/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-javascript"]
-	path = vim/.vim/bundle/vim-javascript
+	path = vim/.vim/pack/bundle/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
 [submodule "vim/bundle/vim-vimlint"]
-	path = vim/.vim/bundle/vim-vimlint
+	path = vim/.vim/pack/bundle/start/vim-vimlint
 	url = https://github.com/syngan/vim-vimlint
 [submodule "vim/bundle/vim-vimlparser"]
-	path = vim/.vim/bundle/vim-vimlparser
+	path = vim/.vim/pack/bundle/start/vim-vimlparser
 	url = https://github.com/ynkdir/vim-vimlparser
 [submodule "vim/bundle/vim-latex"]
-	path = vim/.vim/bundle/vim-latex
+	path = vim/.vim/pack/bundle/start/vim-latex
 	url = https://github.com/lervag/vim-latex.git
 [submodule "vim/bundle/shebang"]
-	path = vim/.vim/bundle/shebang
+	path = vim/.vim/pack/bundle/start/shebang
 	url = https://github.com/vim-scripts/Shebang
 [submodule "vim/bundle/indentLine"]
-	path = vim/.vim/bundle/indentLine
+	path = vim/.vim/pack/bundle/start/indentLine
 	url = https://github.com/Yggdroot/indentLine
 [submodule "vim/.vim/bundle/rust.vim"]
-	path = vim/.vim/bundle/rust.vim
+	path = vim/.vim/pack/bundle/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
 [submodule "vim/.vim/bundle/editorconfig-vim"]
-	path = vim/.vim/bundle/editorconfig-vim
+	path = vim/.vim/pack/bundle/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "vim/.vim/bundle/vim-fugitive"]
-	path = vim/.vim/bundle/vim-fugitive
+	path = vim/.vim/pack/bundle/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
