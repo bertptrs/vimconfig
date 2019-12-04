@@ -185,3 +185,12 @@ SAVEHIST=$HISTSIZE
 
 setopt autocd # Automatically cd to dirs typed
 setopt notify
+
+######################################
+# Application-specific configuration #
+######################################
+
+# Make less understand more file types
+if (( $+commands[lesspipe] )); then
+	eval "$(lesspipe)"
+fi
