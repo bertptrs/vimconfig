@@ -50,6 +50,15 @@ for plugin in "${plugins[@]}"; do
 	fi
 done
 
+
+## Autosuggest plugin configuration
+# Consider autocomplete in completion
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# Enable async suggestions
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+# No completions for long commands
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
+
 bindkey -e
 # zshrc aliases
 alias ls='ls --color=auto'
