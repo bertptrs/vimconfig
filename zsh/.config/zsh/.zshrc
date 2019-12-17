@@ -39,6 +39,17 @@ elif [[ -o interactive ]]; then
 fi
 unset keyfile
 
+################
+# Load plugins #
+################
+plugins=(zsh-autosuggestions/zsh-autosuggestions.zsh)
+
+for plugin in "${plugins[@]}"; do
+	if [[ -f "$ZDOTDIR/plugins/$plugin" ]]; then
+		source "$ZDOTDIR/plugins/$plugin"
+	fi
+done
+
 bindkey -e
 # zshrc aliases
 alias ls='ls --color=auto'
