@@ -52,9 +52,9 @@ installIfAvailable git
 installIfAvailable latexmk
 installIfAvailable ruby
 installIfAvailable npm
-installIfAvailable Xorg
 installIfAvailable awesome
 installIfAvailable sakura
+installIfAvailable hexchat
 
 if commandAvailable weechat; then
 	echo "Setting up weechat settings…"
