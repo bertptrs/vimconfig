@@ -1,5 +1,5 @@
 [submodule "vim/bundle/molokai"]
-	path = vim/.vim/pack/bundle/start/molokai
+	path = vim/.vim/pack/bundle/opt/molokai
 	url = https://github.com/tomasr/molokai
 [submodule "vim/bundle/vim-less"]
 	path = vim/.vim/pack/bundle/start/vim-less

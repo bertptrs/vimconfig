@@ -33,7 +33,7 @@ map <F7> :call SetExecutable()<CR>
 imap <F7> <Esc>:call SetExecutable<CR>
 
 " Paste using Ctrl+V in insert mode.
-inoremap <C-v> <C-o>"+P<C-o>=']
+inoremap <C-v> <C-o>"+p
 
 "language specific syntastic configurtion
 "syntastic configuration
@@ -44,10 +44,6 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
-
-autocmd Filetype python setlocal expandtab
-autocmd Filetype markdown setlocal textwidth=72 expandtab
-autocmd Filetype haskell setlocal expandtab
 
 " Remove trailing whitespace, always.
 fun! StripTrailingWhitespace()
