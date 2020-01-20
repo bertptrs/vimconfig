@@ -69,6 +69,7 @@ alias gvim='gvim --remote-tab'
 alias userctl='systemctl --user'
 alias :q='exit'
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
+alias makej="make -j$(nproc)"
 
 if (( $+commands[thefuck] ))
 then
