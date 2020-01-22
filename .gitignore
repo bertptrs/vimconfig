@@ -1,4 +1,8 @@
 *.swp
 
+# vim netrwhist exists and I don't know what it does
+vim/.vim/.netrwhist
+
 # Ignore the installation of services for now.
 systemd/.config/systemd/user/default.target.wants
+systemd/.config/systemd/user/timers.target.wants
