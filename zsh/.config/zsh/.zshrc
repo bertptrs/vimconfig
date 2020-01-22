@@ -42,7 +42,10 @@ unset keyfile
 ################
 # Load plugins #
 ################
-plugins=(zsh-autosuggestions/zsh-autosuggestions.zsh)
+plugins=(
+	zsh-autosuggestions/zsh-autosuggestions.zsh
+	zsh-you-should-use/you-should-use.plugin.zsh
+)
 
 for plugin in "${plugins[@]}"; do
 	if [[ -f "$ZDOTDIR/plugins/$plugin" ]]; then
@@ -70,6 +73,7 @@ alias userctl='systemctl --user'
 alias :q='exit'
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
+alias sdc='sudo docker-compose'
 
 if (( $+commands[thefuck] ))
 then
