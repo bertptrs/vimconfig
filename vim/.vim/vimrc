@@ -25,13 +25,6 @@ set colorcolumn=72
 map <F1> <Esc>
 imap <F1> <Esc>
 
-
-map <F5> :update<CR>:make<CR>
-imap <F5> <Esc>:update<CR>:make<CR>
-
-map <F7> :call SetExecutable()<CR>
-imap <F7> <Esc>:call SetExecutable<CR>
-
 " Paste using Ctrl+V in insert mode.
 inoremap <C-v> <C-o>"+p
 
@@ -44,6 +37,9 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
+
+"vim-latex configuration
+let g:Tex_CompileRule_pdf = "latexmk -pdflatex='pdflatex -file-line-error -synctex=1 -interaction=nonstopmode' $*"
 
 " Remove trailing whitespace, always.
 fun! StripTrailingWhitespace()
