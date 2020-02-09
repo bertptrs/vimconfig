@@ -6,6 +6,9 @@ autoload -U colors && colors
 # Initialize VCS prompt configuration
 autoload -Uz vcs_info
 
+# And the hooks system
+autoload -Uz add-zsh-hook
+
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
@@ -74,19 +77,22 @@ function prompt_rprompt() {
     echo "${(j::)rprompt}"
 }
 
-function precmd () {
+function prompt_precmd () {
 	# Set window title to username@machine: pwd
 	print -Pn "\e]0;%n@%m: %2~\a"
 	# Load VCS info
 	vcs_info
 }
 
-function preexec () {
+function prompt_preexec () {
 	# Set window title to command about to be executed.
 	if [[ -n $1 ]]; then
 		print -Pn "\e]0;$1\a"
 	fi
 }
+
+add-zsh-hook precmd prompt_precmd
+add-zsh-hook preexec prompt_preexec
 
 PS1="$(prompt_ps1)"
 RPROMPT="$(prompt_rprompt)"

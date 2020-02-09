@@ -75,6 +75,9 @@ alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
 
+# Ensure we can make cheap copies on btrfs
+alias cp='cp --reflink=auto'
+
 if (( $+commands[thefuck] ))
 then
 	alias fuck='$(thefuck $(fc -ln -1))'
@@ -210,6 +213,13 @@ SAVEHIST=$HISTSIZE
 
 setopt autocd # Automatically cd to dirs typed
 setopt notify
+
+#####################
+# Directory history #
+#####################
+
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
 ######################################
 # Application-specific configuration #
