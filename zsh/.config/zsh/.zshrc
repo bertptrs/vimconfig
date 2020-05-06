@@ -75,6 +75,12 @@ alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
 
+# Not an alias but useful nonetheless.
+function pasters() {
+	local file=${1:-/dev/stdin}
+	curl --data-binary @${file} https://paste.rs
+}
+
 # Ensure we can make cheap copies on btrfs
 alias cp='cp --reflink=auto'
 
