@@ -56,9 +56,6 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 # Set up GIMP
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 
-# Set up atom
-export ATOM_HOME="$XDG_DATA_HOME"/atom
-
 # Set up mplayer
 export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 
