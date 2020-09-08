@@ -45,6 +45,7 @@ unset keyfile
 plugins=(
 	zsh-autosuggestions/zsh-autosuggestions.zsh
 	zsh-you-should-use/you-should-use.plugin.zsh
+	nix-zsh-completions/nix-zsh-completions.plugin.zsh
 )
 
 for plugin in "${plugins[@]}"; do
@@ -52,6 +53,8 @@ for plugin in "${plugins[@]}"; do
 		source "$ZDOTDIR/plugins/$plugin"
 	fi
 done
+
+fpath+=("$ZDOTDIR/plugins/nix-zsh-completions")
 
 
 ## Autosuggest plugin configuration
@@ -74,6 +77,7 @@ alias :q='exit'
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
+alias nrc='nix run -c'
 
 # Not an alias but useful nonetheless.
 function pasters() {
@@ -130,10 +134,28 @@ zle -N history-incremental-search-backward-end history-search-end
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
 bindkey '^R' history-incremental-search-backward-end
 
-# Syntax highlighting, if available.
-if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+# Load optional plugins if installed on the host system.
+find_system_plugin() {
+	local plugin=$1
+	local plugin_dirs=(
+		/usr/share/zsh/plugins
+		/usr/share
+	)
+	local dir
+
+	for dir in "${plugin_dirs[@]}"; do
+		if [[ -f "$dir/$plugin/$plugin.zsh" ]]; then
+			echo "$dir/$plugin/$plugin.zsh"
+			return
+		fi
+	done
+
+	# Safe placeholder
+	echo /dev/null
+}
+
+
+source $(find_system_plugin zsh-syntax-highlighting)
 
 # Home and end keys working
 bindkey "${key[Home]}" beginning-of-line
@@ -234,4 +256,29 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # Make less understand more file types
 if (( $+commands[lesspipe] )); then
 	eval "$(lesspipe)"
+fi
+
+############################
+# Special SSH key handling #
+############################
+
+if [[ -f ~/.ssh/id_ed25519 ]]; then
+	# gnome-keyring doesn't handle ed25519 keys properly; try setting up an alternative agent.
+	export SSH_ENV="$HOME/.ssh/environment"
+
+	start_agent() {
+		echo "Initialising new SSH agent..."
+		/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+		echo Succeeded
+		chmod 600 "${SSH_ENV}"
+		. "${SSH_ENV}" > /dev/null
+		/usr/bin/ssh-add ~/.ssh/google_compute_engine >/dev/null 2>&1
+	}
+
+	if [ -f "${SSH_ENV}" ]; then
+		. "${SSH_ENV}" > /dev/null
+		kill -0 "$SSH_AGENT_PID" 2>/dev/null || { start_agent; }
+	else
+		start_agent
+	fi
 fi
