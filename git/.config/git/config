@@ -38,3 +38,5 @@
 [alias]
 	cp = cherry-pick
 	autosquash = rebase -i --autosquash
+[rebase]
+	autosquash = true

@@ -211,6 +211,10 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
+# Enable autocorrect, in case I still get it wrong
+setopt correct
+export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [ynae] "
+
 ##########################
 ## History configuration #
 ##########################
