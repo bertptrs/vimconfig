@@ -52,3 +52,6 @@
 [submodule "vim/.vim/pack/bundle/start/vim-terraform"]
 	path = vim/.vim/pack/bundle/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule "vim/.vim/pack/bundle/start/vim-nix"]
+	path = vim/.vim/pack/bundle/start/vim-nix
+	url = https://github.com/LnL7/vim-nix.git
