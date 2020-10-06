@@ -1,5 +1,5 @@
 [core]
-	pager = less -x4
+	pager = less -x4 -F -X
 	editor = vim
 	excludesfile = ~/.config/git/ignore
 
