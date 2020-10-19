@@ -38,5 +38,8 @@
 [alias]
 	cp = cherry-pick
 	autosquash = rebase -i --autosquash
+	pushf = push --force-with-lease
 [rebase]
 	autosquash = true
+[fetch]
+	prune = true
