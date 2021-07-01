@@ -39,6 +39,7 @@
 	cp = cherry-pick
 	autosquash = rebase -i --autosquash
 	pushf = push --force-with-lease
+	fixup = commit --fixup=@
 [rebase]
 	autosquash = true
 [fetch]
