@@ -76,6 +76,11 @@ if [[ -d "$HOME/.local/bin" ]]; then
 	path+="$HOME/.local/bin"
 fi
 
+# Add cargo binaries to path
+if [[ -d "$HOME/.cargo/bin" ]]; then
+	path+="$HOME/.cargo/bin"
+fi
+
 # Set up GIMP
 export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp
 

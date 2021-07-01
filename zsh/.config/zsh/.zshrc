@@ -78,6 +78,9 @@ alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
 alias nrc='nix run -c'
+alias gcs='gcloud compute ssh'
+alias gscp='gcloud compute scp'
+alias gci='gcloud compute instances'
 
 # Not an alias but useful nonetheless.
 function pasters() {
@@ -210,6 +213,11 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 # pip zsh completion end
+
+# Load gcloud completions if they are available
+if [[ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]]; then
+	source /usr/share/google-cloud-sdk/completion.zsh.inc
+fi
 
 # Enable autocorrect, in case I still get it wrong
 setopt correct
