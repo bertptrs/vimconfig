@@ -58,3 +58,6 @@
 [submodule "vim/.vim/pack/bundle/start/vim-hashicorp-tools"]
 	path = vim/.vim/pack/bundle/start/vim-hashicorp-tools
 	url = https://github.com/hashivim/vim-hashicorp-tools.git
+[submodule "zsh/.config/zsh/plugins/zsh-auto-notify"]
+	path = zsh/.config/zsh/plugins/zsh-auto-notify
+	url = https://github.com/MichaelAquilina/zsh-auto-notify.git

@@ -46,6 +46,7 @@ plugins=(
 	zsh-autosuggestions/zsh-autosuggestions.zsh
 	zsh-you-should-use/you-should-use.plugin.zsh
 	nix-zsh-completions/nix-zsh-completions.plugin.zsh
+	zsh-auto-notify/auto-notify.plugin.zsh
 )
 
 for plugin in "${plugins[@]}"; do
