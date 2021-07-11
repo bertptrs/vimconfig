@@ -44,3 +44,8 @@
 	autosquash = true
 [fetch]
 	prune = true
+[sendemail]
+	smtpserver = charon.bertptrs.nl
+	smtpserverport = 587
+	smtpuser = bert
+	smtpencryption = tls
