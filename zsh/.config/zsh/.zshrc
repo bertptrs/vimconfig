@@ -271,6 +271,11 @@ if (( $+commands[lesspipe] )); then
 	eval "$(lesspipe)"
 fi
 
+# Use bat as a man pager if it's available
+if (( $+commands[bat] )); then
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
 ############################
 # Special SSH key handling #
 ############################
