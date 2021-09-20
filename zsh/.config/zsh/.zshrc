@@ -286,6 +286,8 @@ fi
 # Use bat as a man pager if it's available
 if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+	# And replace cat while we're at it
+	alias cat='bat'
 fi
 
 ############################
