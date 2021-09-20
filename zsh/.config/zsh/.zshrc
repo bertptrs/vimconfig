@@ -57,6 +57,18 @@ done
 
 fpath+=("$ZDOTDIR/plugins/nix-zsh-completions")
 
+# Configure auto-notify
+AUTO_NOTIFY_IGNORE+=(
+	"gcloud compute ssh"
+	"nix run"
+	"git"
+	"bash"
+	"sem debug"
+	"git log"
+	"journalctl"
+	"jekyll serve"
+)
+
 
 ## Autosuggest plugin configuration
 # Consider autocomplete in completion
