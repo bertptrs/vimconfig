@@ -40,6 +40,7 @@
 	autosquash = rebase -i --autosquash
 	pushf = push --force-with-lease
 	fixup = commit --fixup=@
+	master = !git fetch && git checkout -B master origin/master
 [rebase]
 	autosquash = true
 [fetch]
