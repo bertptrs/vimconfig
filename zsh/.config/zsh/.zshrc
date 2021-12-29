@@ -67,6 +67,7 @@ AUTO_NOTIFY_IGNORE+=(
 	"git log"
 	"journalctl"
 	"jekyll serve"
+	"sudoedit"
 )
 
 
