@@ -291,28 +291,3 @@ if (( $+commands[bat] )); then
 	# And replace cat while we're at it
 	alias cat='bat'
 fi
-
-############################
-# Special SSH key handling #
-############################
-
-if [[ -f ~/.ssh/id_ed25519 ]]; then
-	# gnome-keyring doesn't handle ed25519 keys properly; try setting up an alternative agent.
-	export SSH_ENV="$HOME/.ssh/environment"
-
-	start_agent() {
-		echo "Initialising new SSH agent..."
-		/usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-		echo Succeeded
-		chmod 600 "${SSH_ENV}"
-		. "${SSH_ENV}" > /dev/null
-		/usr/bin/ssh-add ~/.ssh/google_compute_engine >/dev/null 2>&1
-	}
-
-	if [ -f "${SSH_ENV}" ]; then
-		. "${SSH_ENV}" > /dev/null
-		kill -0 "$SSH_AGENT_PID" 2>/dev/null || { start_agent; }
-	else
-		start_agent
-	fi
-fi
