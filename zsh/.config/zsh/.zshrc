@@ -61,13 +61,14 @@ fpath+=("$ZDOTDIR/plugins/nix-zsh-completions")
 AUTO_NOTIFY_IGNORE+=(
 	"gcloud compute ssh"
 	"nix run"
-	"git"
 	"bash"
 	"sem debug"
-	"git log"
+	"git "{commit,grep,log}
 	"journalctl"
 	"jekyll serve"
 	"sudoedit"
+	"ipython"{,3}
+	"sem "{attach,debug}
 )
 
 
@@ -92,7 +93,7 @@ alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
 alias nrc='nix run -c'
-alias gcs='gcloud compute ssh'
+alias gcs='gcloud compute ssh --tunnel-through-iap'
 alias gscp='gcloud compute scp'
 alias gci='gcloud compute instances'
 
