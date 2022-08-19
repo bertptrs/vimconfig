@@ -47,6 +47,9 @@ fun! StripTrailingWhitespace()
 	if &ft =~ 'diff'
 		return
 	endif
+	if expand("%:e") == 't'
+		return
+	endif
 	%s/\s\+$//e
 endfun
 
