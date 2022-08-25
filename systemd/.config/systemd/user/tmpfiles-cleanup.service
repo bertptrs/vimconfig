@@ -1,9 +1,0 @@
-[Unit]
-Description=Cleanup of temporary files
-
-[Service]
-Type=oneshot
-ExecStart=/bin/systemd-tmpfiles --root=%h --clean %h/.config/tmpfiles/tmpfiles.conf
-
-[Install]
-WantedBy=default.target

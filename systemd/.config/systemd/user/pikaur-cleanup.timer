@@ -1,9 +1,0 @@
-[Unit]
-Description=Periodically clean pikaur pkgs
-
-[Timer]
-Persistent=True
-OnCalendar=weekly
-
-[Install]
-WantedBy=timers.target

@@ -7,5 +7,4 @@ vim/.vim/.netrwhist
 zsh/.config/zsh/.chpwd-recent-dirs
 
 # Ignore the installation of services for now.
-systemd/.config/systemd/user/default.target.wants
-systemd/.config/systemd/user/timers.target.wants
+systemd/.config/systemd/user/*.target.wants
