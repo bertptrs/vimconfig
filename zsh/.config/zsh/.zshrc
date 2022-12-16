@@ -69,6 +69,9 @@ AUTO_NOTIFY_IGNORE+=(
 	"sudoedit"
 	"ipython"{,3}
 	"sem "{attach,debug}
+	"psql"
+	"sqlite3"
+	"iotop"
 )
 
 
@@ -92,9 +95,10 @@ alias :q='exit'
 alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
-alias nrc='nix run -c'
+# Used to be nix run -c. That no longer works but my muscle memory does
+alias nrc='nix shell --file default.nix -c'
 alias gcs='gcloud compute ssh --tunnel-through-iap'
-alias gscp='gcloud compute scp'
+alias gscp='gcloud compute scp --tunnel-through-iap'
 alias gci='gcloud compute instances'
 
 # Not an alias but useful nonetheless.
@@ -290,4 +294,9 @@ if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 	# And replace cat while we're at it
 	alias cat='bat'
+fi
+
+# Source Nix if it's installed. Should be done by the WM, but it isn't
+if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 fi
