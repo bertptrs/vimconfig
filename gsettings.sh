@@ -14,3 +14,6 @@ gsettings set org.gnome.desktop.wm.keybindings begin-move "['']"
 
 # No F1 button in Gnome Terminal
 gsettings set "org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/" help 'disabled'
+
+# No emoji ibus hotkey
+gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
