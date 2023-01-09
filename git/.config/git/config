@@ -41,12 +41,24 @@
 	pushf = push --force-with-lease
 	fixup = commit --fixup=@
 	master = !git fetch && git checkout -B master origin/master
+
 [rebase]
 	autosquash = true
+
 [fetch]
 	prune = true
+
 [sendemail]
 	smtpserver = charon.bertptrs.nl
 	smtpserverport = 587
 	smtpuser = bert
 	smtpencryption = tls
+
+[blame]
+	# Ignore certain commits while generating "git blame." Filename taken from
+	# Github's pseudo-standard
+	ignoreRevsFile = .git-blame-ignore-revs
+	# Mark any lines that have had a commit skipped using --ignore-rev with a `?`
+	markIgnoredLines = true
+	# Mark any lines that were added in a skipped commit and can not be attributed with a `*`
+	markUnblamableLines = true
