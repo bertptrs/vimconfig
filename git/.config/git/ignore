@@ -18,3 +18,4 @@
 # Exclude IDE files
 .idea
 cmake-build-*
+.vscode
