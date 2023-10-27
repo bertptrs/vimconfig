@@ -294,6 +294,9 @@ if (( $+commands[bat] )); then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 	# And replace cat while we're at it
 	alias cat='bat'
+
+	# According to upstream, "if you have problems add this." I have problems.
+	export MANROFFOPT="-c"
 fi
 
 # Source Nix if it's installed. Should be done by the WM, but it isn't
