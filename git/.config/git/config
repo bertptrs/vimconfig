@@ -19,6 +19,7 @@
 
 [push]
 	default = simple
+	autoSetupRemote = true
 
 [merge]
 	tool = vimdiff
@@ -45,6 +46,8 @@
 
 [rebase]
 	autosquash = true
+	updateRefs = true
+	autoStash = true
 
 [fetch]
 	prune = true
