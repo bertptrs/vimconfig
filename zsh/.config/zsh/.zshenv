@@ -38,9 +38,6 @@ fi
 # Set up wine
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 
-# Setup tmux
-test -f "$XDG_CONFIG_HOME/tmux/tmux.conf" && alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-
 # Set up Rubygems
 if type gem &> /dev/null; then
 	path+="$HOME/.gem/bin"
