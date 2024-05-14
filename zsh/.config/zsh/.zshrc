@@ -108,7 +108,9 @@ alias gci='gcloud compute instances'
 # Not an alias but useful nonetheless.
 function pasters() {
 	local file=${1:-/dev/stdin}
-	curl --data-binary @${file} https://paste.rs
+	# Explicitly write the newline because paste.rs doesn't and sakura
+	# gets confused.
+	curl --write-out "\n" --data-binary @${file} https://paste.rs
 }
 
 # Ensure we can make cheap copies on btrfs
