@@ -53,6 +53,7 @@ function prompt_ps1() {
 		host="%S%B$host"
 	fi
 
+	local shlvl="%{$fg[black]%}%{$bg[magenta]%}\${(l:$SHLVL-1::>:)}%{$reset_color%}"
 	local prompt="%n@%{$fg[cyan]%}%m$rs %# "
 	ps1=(
 		"$host"
@@ -61,6 +62,7 @@ function prompt_ps1() {
 		$'\n'
 		'$(prompt_handle_virtualenv)'
 		'${vcs_info_msg_0_:+${vcs_info_msg_0_}\n}'
+		"$shlvl"
 		"$prompt"
 	)
     echo "${(j::)ps1}"
