@@ -309,3 +309,31 @@ fi
 if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
 	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 fi
+
+#####################
+# Arch Linux things #
+#####################
+function arch-pkg-cd() {
+	# Inspired by Segaja: https://gitlab.com/Segaja/dotfiles_base/-/blob/main/distro_arch/.config/zsh/os.zsh#L118-133
+	local arch_repo_folder="${HOME}/projects/arch/packaging/packages"
+
+	if [[ ! -d "$arch_repo_folder/$1" ]]; then
+		if pacman -Si "$1" &> /dev/null; then
+			cd "$arch_repo_folder"
+			pkgctl repo clone "$1"
+		elif [[ "$2" = '-c' ]]; then
+			cd "$arch_repo_folder"
+			pkgctl repo create --clone "$1"
+		else
+			echo "Non-existent package, use -c to create" >&2
+			return 1
+		fi
+
+		cd "$1"
+		return 0
+	else
+		cd "$arch_repo_folder/$1"
+		pkgctl repo configure
+		git pull --rebase --autostash
+	fi
+}
