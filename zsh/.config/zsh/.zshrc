@@ -125,6 +125,10 @@ eval "$(dircolors)"
 
 # Initialize the prompt
 source "${ZDOTDIR:-$HOME}/.zshtheme"
+# Report commands that take longer than ten seconds, or more than 10MB
+# of RAM
+REPORTTIME=10
+REPORTMEMORY=10240
 
 # Setup the CNF hook
 if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
