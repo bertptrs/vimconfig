@@ -116,6 +116,12 @@ function pasters() {
 # Ensure we can make cheap copies on btrfs
 alias cp='cp --reflink=auto'
 
+function pullall() {
+	for repo in "$@"; do
+		echo "$repo"
+	done | xargs -P0 -I{} git -C {} pull
+}
+
 if (( $+commands[thefuck] ))
 then
 	alias fuck='$(thefuck $(fc -ln -1))'
