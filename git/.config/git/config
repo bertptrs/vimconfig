@@ -20,9 +20,11 @@
 [push]
 	default = simple
 	autoSetupRemote = true
+	followTags = true
 
 [merge]
 	tool = vimdiff
+	conflictstyle = zdiff3
 
 [help]
 	autocorrect = 10
@@ -46,11 +48,13 @@
 
 [rebase]
 	autosquash = true
-	updateRefs = true
+	updaterefs = true
 	autoStash = true
 
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 
 [sendemail]
 	smtpserver = charon.bertptrs.nl
@@ -72,3 +76,15 @@
 	# Mark any lines that were added in a skipped commit and can not be
 	# attributed with a `*`
 	markUnblamableLines = true
+[branch]
+	sort = -committerdate
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicprefix = true
+	renames = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[tag]
+	sort = version:refname
