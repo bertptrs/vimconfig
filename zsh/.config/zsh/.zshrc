@@ -50,7 +50,6 @@ plugins=(
 	zsh-autosuggestions/zsh-autosuggestions.zsh
 	zsh-you-should-use/you-should-use.plugin.zsh
 	nix-zsh-completions/nix-zsh-completions.plugin.zsh
-	zsh-auto-notify/auto-notify.plugin.zsh
 )
 
 for plugin in "${plugins[@]}"; do
@@ -60,24 +59,6 @@ for plugin in "${plugins[@]}"; do
 done
 
 fpath+=("$ZDOTDIR/plugins/nix-zsh-completions")
-
-# Configure auto-notify
-AUTO_NOTIFY_IGNORE+=(
-	"gcloud compute ssh"
-	"nix run"
-	"bash"
-	"sem debug"
-	"git "{commit,grep,log}
-	"journalctl"
-	"jekyll serve"
-	"sudoedit"
-	"ipython"{,3}
-	"sem "{attach,debug}
-	"psql"
-	"sqlite3"
-	"iotop"
-)
-
 
 ## Autosuggest plugin configuration
 # Consider autocomplete in completion
