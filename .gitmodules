@@ -61,3 +61,6 @@
 [submodule "zsh/.config/zsh/plugins/zsh-auto-notify"]
 	path = zsh/.config/zsh/plugins/zsh-auto-notify
 	url = https://github.com/MichaelAquilina/zsh-auto-notify.git
+[submodule "vim/.vim/pack/bundle/start/vim-pkgbuild"]
+	path = vim/.vim/pack/bundle/start/vim-pkgbuild
+	url = https://github.com/m-pilia/vim-pkgbuild.git
