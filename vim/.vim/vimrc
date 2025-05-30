@@ -54,6 +54,7 @@ fun! StripTrailingWhitespace()
 endfun
 
 autocmd BufWritePre * call StripTrailingWhitespace()
+autocmd filetype pkgbuild setlocal tabstop=2 shiftwidth=2 expandtab
 
 " Keep backup files etc out of the way
 set undofile
