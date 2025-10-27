@@ -85,6 +85,9 @@ alias nrc='nix shell --file default.nix -c'
 alias gcs='gcloud compute ssh --tunnel-through-iap'
 alias gscp='gcloud compute scp --tunnel-through-iap'
 alias gci='gcloud compute instances'
+# This invocation is so much more complicated than it needs to be, but
+# Google will only show mountain time otherwise.
+alias gops='gcloud compute operations list --format=":(TIMESTAMP.date(tz=LOCAL))" --sort-by=TIMESTAMP'
 
 # Not an alias but useful nonetheless.
 function pasters() {
