@@ -119,6 +119,7 @@ source "${ZDOTDIR:-$HOME}/.zshtheme"
 # of RAM
 REPORTTIME=10
 REPORTMEMORY=10240
+TIMEFMT='%J  %U user %S system %P cpu %*E total; max RSS %MkB'
 
 # Setup the CNF hook
 if [[ -s /usr/share/doc/pkgfile/command-not-found.zsh ]]; then
