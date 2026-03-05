@@ -52,9 +52,6 @@
 [submodule "vim/.vim/pack/bundle/start/vim-nix"]
 	path = vim/.vim/pack/bundle/start/vim-nix
 	url = https://github.com/LnL7/vim-nix.git
-[submodule "vim/.vim/pack/bundle/start/vim-hcl"]
-	path = vim/.vim/pack/bundle/start/vim-hcl
-	url = https://github.com/jvirtanen/vim-hcl.git
 [submodule "vim/.vim/pack/bundle/start/vim-hashicorp-tools"]
 	path = vim/.vim/pack/bundle/start/vim-hashicorp-tools
 	url = https://github.com/hashivim/vim-hashicorp-tools.git
