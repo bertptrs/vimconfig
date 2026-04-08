@@ -82,6 +82,7 @@ alias makej="make -j$(nproc)"
 alias sdc='sudo docker-compose'
 # Used to be nix run -c. That no longer works but my muscle memory does
 alias nrc='nix shell --file default.nix -c'
+alias dee='direnv exec .'
 alias gcs='gcloud compute ssh --tunnel-through-iap'
 alias gscp='gcloud compute scp --tunnel-through-iap'
 alias gci='gcloud compute instances'
